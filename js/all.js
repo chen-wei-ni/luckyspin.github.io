@@ -77,8 +77,8 @@ var sm = (function(undefined){
 			$reels = $('.reel').each(function(i, el){
 			p = Math.floor(Math.random()*5)
 			el.innerHTML = `<div class="a1"><img src="${reels2[p][2]}"><img src="${reels2[p][3]}"></div><div class="a1"><img src="${reels2[p][2]}"><img src="${reels2[p][1]}"></div><div class="a1"><img src="${reels2[p][2]}"><img src="${reels2[p][1]}"></div><div class="a1 bonus_how"><img src="${reels2[p][2]}"><img src="${reels2[p][3]}"></div>
-			<div class="a1 bonus_how"><img src="${reels2[p][2]}"><img src="${reels2[p][1]}"></div><div class="a1"><img src="${reels2[p][2]}"><img src="${reels2[p][1]}"></div><div class="a1"><img src="${reels2[p][2]}"><img src="${reels2[p][3]}"></div><div class="a1"><img src="${reels2[p][2]}"><img src="${reels2[p][1]}"></div><div class="a1"><img src="${reels2[p][2]}"><img src="${reels2[p][1]}"></div><div class="a1"><img src="${reels2[p][2]}"><img src="${reels2[p][3]}"></div><div class="a1"><img src="${reels2[p][2]}"><img src="${reels2[p][1]}"></div><div class="a1"><img src="${reels2[p][2]}"><img src="${reels2[p][1]}"></div>
-			<div class="a1"><img src="${reels2[p][2]}"><img src="${reels2[p][1]}"></div>
+			<div class="a1 bonus_how"><img src="${reels2[p][2]}"><img src="${reels2[p][1]}"></div><div class="a1"><img src="${reels2[p][2]}"><img src="${reels2[p][1]}"></div><div class="a1"><img src="${reels2[p][2]}"><img src="${reels2[p][3]}"></div><div class="a1"><img src="${reels2[p][2]}"><img src="${reels2[p][1]}"></div><div class="a1"><img src="${reels2[p][2]}"><img src="${reels2[p][1]}"></div><div class="a1"><img src="${reels2[1][2]}"><img src="${reels2[p][3]}"></div><div class="a1"><img src="${reels2[p][2]}"><img src="${reels2[p][1]}"></div><div class="a1"><img src="${reels2[p][2]}"><img src="${reels2[p][1]}"></div>
+			<div class="a1"><img src="${reels2[1][2]}"><img src="${reels2[p][1]}"></div>
 			`			
 			// '<div><p>' + reels[i].join('</p><p>') + '</p></div><div><p>' + reels[i].join('</p><p>') + '</p></div><div><p>'  +  reels[i].join('</p><p>') +'</p></div>'
 		});
@@ -171,19 +171,24 @@ var sm = (function(undefined){
 }
 	function check(){ 
 		let bonusBoxs = document.querySelectorAll('.bonus_how img');
+		let c =[];
 		console.log(bonusBoxs,bonusBoxs.length);
 		for(let i=0;i<bonusBoxs.length;i++){
 			if(bonusBoxs[i].outerHTML == "<img src=\"img/bonus.png\">"){
-				bonusBoxs[i].classList.add("congrats")
-			}
+				bonusBoxs[i].classList.add("congrats");
+				if(bonusBoxs[i].classList.value == "congrats"){
+					 c.push(bonusBoxs[i])				
+				}				
+			}			
 		}
-		
+		console.log(c.length)
 		setTimeout(function(){
-			popup()
+			popup(c.length)
 		},500)
 	}
 
-	function popup(){		
+	function popup(num){		
+
 		const boomSpinning = [
 			{ transform: 'scale(0.95)' },
 			{ transform: ' scale(1)' },
@@ -201,15 +206,24 @@ var sm = (function(undefined){
 		light.style['display'] ='block';
 		prize.animate(boomSpinning,boomTiming)
 		prize.style.display = "block";
-		prize.innerHTML = 
+		if(num >=7){
+			prize.innerHTML = 
+		`	<div class="popup">
+				<p> Getting the *Big Gifts* !!</p>
+			</div>
+			`
+		;
+		}else if(num <7){
+			prize.innerHTML = 
 		`	<div class="popup">
 				<p> Getting the *Gifts* !!</p>
 			</div>
 			`
-		;
+		}
 
 		// cancelpop(); //<button class="cancelBtn">Close</button>
 	}
+
 	// function cancelpop(){
 	// 	let btn = document.querySelector('.cancelBtn');
 	// 	btn.addEventListener('click', function (e) {
