@@ -48,7 +48,6 @@ var sm = (function (undefined) {
 		speeds = [],
 		r = [],
 		g = 'img/sample.png',
-		gb = 'img/blur.png',
 		b = 'img/bonus.png',
 		start2, start3, start4, start5 = undefined,
 		reels = [
@@ -76,7 +75,9 @@ var sm = (function (undefined) {
 	function init() {
 		initState()
 		$msg = $('.msg');
-		$('.button').click(action);
+		$('.button').click(throttle(function () {
+			action()
+		}, 4500));
 	}
 	function reelInit() {
 		$reels = $('.reel').each(function (i, el) {
@@ -93,6 +94,20 @@ var sm = (function (undefined) {
 			// '<div><p>' + reels[i].join('</p><p>') + '</p></div><div><p>' + reels[i].join('</p><p>') + '</p></div><div><p>'  +  reels[i].join('</p><p>') +'</p></div>'
 		});
 	}
+	// 遊戲進行不能再按按鈕
+	function throttle(func, duration) {
+		let shouldWait = false;
+		return function (...args) {
+			if (!shouldWait) {
+				func.apply(this, args)
+				shouldWait = true;
+				setTimeout(function () {
+					shouldWait = false
+				}, duration)
+			}
+		}
+	}
+
 	function action() {
 		prize.style.display = "none"
 		prize.innerHTML = "";
@@ -102,12 +117,12 @@ var sm = (function (undefined) {
 		if (start3 !== undefined) return;
 		if (start4 !== undefined) return;
 		if (start5 !== undefined) return;
-		console.log(start)
+		// console.log(start);
 		for (var i = 0; i < 5; ++i) {
 			speeds[i] = Math.random() * 10 + 15;
 			r[i] = 980 || (Math.random() * 3 | 0) * height / 3 + Math.floor(Math.random() * 3);
 		}
-		console.log(speeds)
+		// console.log(speeds);
 		allAnimate();
 	}
 	function allAnimate() {
@@ -193,13 +208,13 @@ var sm = (function (undefined) {
 		}());
 		setTimeout(function () {
 			check();
-		}, 4000)
+		}, 4000);
 	}
 
 	function check() {
 		let bonusBoxs = document.querySelectorAll('.bonus_how img');
 		let c = [];
-		console.log(bonusBoxs, bonusBoxs.length);
+		// console.log(bonusBoxs, bonusBoxs.length);
 		for (let i = 0; i < bonusBoxs.length; i++) {
 			if (bonusBoxs[i].outerHTML == "<img src=\"img/bonus.png\">") {
 				bonusBoxs[i].classList.add("congrats");
@@ -208,7 +223,7 @@ var sm = (function (undefined) {
 				}
 			}
 		}
-		console.log(c.length)
+		// console.log(c.length);
 		setTimeout(function () {
 			popup(c.length)
 		}, 500)
