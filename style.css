@@ -1,284 +1,301 @@
 /* CSS reset { */
-    body,div,h1,button,p{margin:0;padding:0}
-    button{font-family:inherit;font-size:inherit;font-style:inherit;font-weight:inherit}
-    a:active,a:focus {outline: 0}
-    /* } */
-    
-    body, input, select, textarea {font:18px/18px "Helvetica Neue",Helvetica,Arial,sans-serif;}
-  body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #25978c;
-    box-sizing: border-box;
-  }
-    img {
-    width: 100%;
-    height: auto;
-    vertical-align: middle;
-    }
+body,
+div,
+h1,
+button,
+p {
+  margin: 0;
+  padding: 0;
+}
+button {
+  font-family: inherit;
+  font-size: inherit;
+  font-style: inherit;
+  font-weight: inherit;
+}
+a:active,
+a:focus {
+  outline: 0;
+}
+/* } */
 
-    .background {
-      width: 100%;
-      height: 1080px;
-      background: #606060 url(img/background.jpg) center center no-repeat;
-      background-size: cover;
-      display: grid;
-      grid-template-columns: 1355px 550px;
-      justify-content: space-around;
-      position: relative;
-    }
-    .slot_bg {
-      width:  1625px;
-      height: 100%;
-      background: url(img/slotlayout.png) center center no-repeat;
-      position: relative;
-      top: -2%;
-      left: -5%;
-      background-size: 100%;
-    }
-    .title {
-      width: 65%;
-      position: absolute;
-      top: 12%;
-      left: 17%;
-      animation: title 1.2s infinite ;
-    }
-    .slot_machine{
-      position: absolute;
-      top: 20%;
-      left: 12%;
-      width: 1205px;
-      height: 760px;
-      overflow: hidden;
-    }
-    .spinPart {
-      position: relative;  
-    }
-    #sm {    
-      margin: 10px auto ;
-      padding: 20px;
-      grid-gap: 50px;    
-    }
-    
+body,
+input,
+select,
+textarea {
+  font: 18px/18px "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #25978c;
+  box-sizing: border-box;
+}
+img {
+  width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
 
-    .reels {
-      padding: 10px 0 5px 15px;
-      display: grid;
-      grid-template-columns:  repeat(5,1fr);
-    }
-    
-    .reel {
-          width: 100%;
-          height: 719px;
-          overflow: hidden;
+.background {
+  width: 1920px;
+  height: 1080px;
+  background: #606060 url(img/background.jpg) center center no-repeat;
+  background-size: cover;
+  display: grid;
+  grid-template-columns: 1355px 550px;
+  justify-content: space-around;
+  position: relative;
+}
+.slot_bg {
+  width: 1625px;
+  height: 100%;
+  background: url(img/slotlayout.png) center center no-repeat;
+  position: relative;
+  top: -2%;
+  left: -5%;
+  background-size: 100%;
+}
+.title {
+  width: 65%;
+  position: absolute;
+  top: 12%;
+  left: 17%;
+  animation: title 1.2s infinite;
+}
+.slot_machine {
+  position: absolute;
+  top: 20%;
+  left: 12%;
+  width: 1205px;
+  height: 760px;
+  overflow: hidden;
+}
+.spinPart {
+  position: relative;
+}
+#sm {
+  margin: 10px auto;
+  padding: 20px;
+  grid-gap: 50px;
+}
 
-        }
+.reels {
+  padding: 10px 0 5px 15px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
 
-    /* .lever {
+.reel {
+  width: 100%;
+  height: 719px;
+  overflow: hidden;
+}
+
+/* .lever {
       padding-right: 20px;
       order: 1;
     } */
-    .right_part {
-      display: flex;
-      width: 100%;
-      flex-direction: column;
-      justify-content: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .right_part .figure_part{
-      /* width: 565px; */
-      height: 660px;
-      animation: float 3s infinite alternate;
-    }
-    .right_part .figure_part div {
-      position: absolute;
-    }
-    .right_part .figure_part .coin {
-      animation: shinCoin 3s infinite alternate-reverse;
-    }
-    .right_part .figure_part .bling {
-      mix-blend-mode: screen;
-    }
-    .right_part .figure_part .bling div {
-      animation: blingbling 1.5s infinite linear;
-    }
-    .right_part .figure_part .bling div:nth-child(1){
-      width: 80px;
-      top: 155px;
-      left: 48px;
-    }
-    .right_part .figure_part .bling div:nth-child(2){
-      width: 60px;
-      top: 305px;
-      left: 420px;
-      animation-delay: .5s;
-    }
-    .right_part .figure_part .bling div:nth-child(3){
-      width: 100px;
-      top: 300px;
-      left: 165px;
-      animation-delay: 1s;
-    }
-    .right_part .button {
-      padding: 0 4rem;
-      transition: all .3s;
-    }
-    .lever div:hover {
-      transition: all .3s;
-      cursor: pointer;
-      filter: hue-rotate(-25deg);
-    }
-    .lever div:active {
-      filter: drop-shadow(0 1px 4px rgba(0,0,0,.3)) contrast(150%) ;
-      margin: 10px 0 -10px;
-    } 
-    
-    .prize{
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      z-index: 3;
-    }
-    .popup {
-      background: url('img/f-bg.png') no-repeat ;
-      width: 720px;
-      height: 400px;
-      text-align: center;
-      margin-top: 30px;
-      position: absolute;
-      top: 30%;
-      left: 30%;
-      z-index: 5;
-    }
-    .popup p {
-      font-size: 2.5rem;
-      color: #fff;
-      margin-top: 25%;
-    }
-    .light{
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      mix-blend-mode: color-dodge; 
-      display: none;
-      z-index: 2;
-    }
-    .lightRotate {
-      position: absolute;
-      top: 0;
-      left: 23%;
-      width: 50%;
-      animation: rotateShine 5s infinite linear;
-    }
-    .dark {
-      width: 100%;
-      height: 100%;
-      position: fixed;
-      display: none;
-      padding: 2rem
-    }
+.right_part {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.right_part .figure_part {
+  /* width: 565px; */
+  height: 660px;
+  animation: float 3s infinite alternate;
+}
+.right_part .figure_part div {
+  position: absolute;
+}
+.right_part .figure_part .coin {
+  animation: shinCoin 3s infinite alternate-reverse;
+}
+.right_part .figure_part .bling {
+  mix-blend-mode: screen;
+}
+.right_part .figure_part .bling div {
+  animation: blingbling 1.5s infinite linear;
+}
+.right_part .figure_part .bling div:nth-child(1) {
+  width: 80px;
+  top: 155px;
+  left: 48px;
+}
+.right_part .figure_part .bling div:nth-child(2) {
+  width: 60px;
+  top: 305px;
+  left: 420px;
+  animation-delay: 0.5s;
+}
+.right_part .figure_part .bling div:nth-child(3) {
+  width: 100px;
+  top: 300px;
+  left: 165px;
+  animation-delay: 1s;
+}
+.right_part .button {
+  padding: 0 4rem;
+  transition: all 0.3s;
+}
+.lever div:hover {
+  transition: all 0.3s;
+  cursor: pointer;
+  filter: hue-rotate(-25deg);
+}
+.lever div:active {
+  filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.3)) contrast(150%);
+  margin: 10px 0 -10px;
+}
 
-    .blur {
-      filter: blur(2px);
-    }
-    .congrats {
-      transition: all .5s;
-      filter: brightness(120%) drop-shadow(0 0 5px #ffee00);
-      animation: congrats 2s infinite alternate;
-    }
-    audio{
-      display: block;
-      position: absolute;
-    }
-    /* animation --*/
+.prize {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+}
+.popup {
+  background: url("img/f-bg.png") no-repeat;
+  width: 720px;
+  height: 400px;
+  text-align: center;
+  margin-top: 30px;
+  position: absolute;
+  top: 30%;
+  left: 30%;
+  z-index: 5;
+}
+.popup p {
+  font-size: 2.5rem;
+  color: #fff;
+  margin-top: 25%;
+}
+.light {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  mix-blend-mode: color-dodge;
+  display: none;
+  z-index: 2;
+}
+.lightRotate {
+  position: absolute;
+  top: 0;
+  left: 23%;
+  width: 50%;
+  animation: rotateShine 5s infinite linear;
+}
+.dark {
+  width: 100%;
+  min-width: 1920px;
+  height: 100%;
+  position: fixed;
+  display: none;
+  padding: 2rem;
+}
 
-    @keyframes shinCoin {
-      0% {
-        transform: scale(1);
-      }
-      100% {
-        transform: scale(1.1);
-        filter:  contrast(150%);
-      }
-    }
-    @keyframes float {
-      0% {
-        transform: translateY(0);
-      }
-      100% {
-        transform: translateY(-30px);
-      }
-    }
-    @keyframes rotateShine {
-      0% {
-        transform: rotate(0);
-      }
-      100% {
-        transform: rotate(360deg) ;
-      }
-    }
-    @keyframes title {
-      0%{
-        transform: rotate(0) ;
-      }
-      1% {
-        transform: rotate(3deg)
-      }
-      4% {
-        transform: rotate(-3deg) ;
-      }
-      10% {
-        transform: rotate(0deg) ;  
-      }
-      12% {
-        transform: rotate(3deg);        
-      }
-      16% {
-        transform: rotate(-3deg) ;
-        filter: saturate(2) brightness(120%);
-      }
-      20%{
-        transform: rotate(0);
-      }
-      100% {
-        transform: rotate(0);
-      }
-      
-    }
+.blur {
+  filter: blur(2px);
+}
+.congrats {
+  transition: all 0.5s;
+  filter: brightness(120%) drop-shadow(0 0 5px #ffee00);
+  animation: congrats 2s infinite alternate;
+}
+audio {
+  display: block;
+  position: absolute;
+}
+/* animation --*/
 
-    @keyframes congrats {
-      0% {
-        transform: scale(1);
-      }
-      100%{
-        transform: scale(0.9);
-      }
-    }
+@keyframes shinCoin {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.1);
+    filter: contrast(150%);
+  }
+}
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-30px);
+  }
+}
+@keyframes rotateShine {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes title {
+  0% {
+    transform: rotate(0);
+  }
+  1% {
+    transform: rotate(3deg);
+  }
+  4% {
+    transform: rotate(-3deg);
+  }
+  10% {
+    transform: rotate(0deg);
+  }
+  12% {
+    transform: rotate(3deg);
+  }
+  16% {
+    transform: rotate(-3deg);
+    filter: saturate(2) brightness(120%);
+  }
+  20% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(0);
+  }
+}
 
-    @keyframes blingbling {
-      0% {
-        opacity: 0;
-        transform: scale(0);
-      }
-      20% {
-        opacity: 1;
-        transform: scale(1) rotate(10deg);
-        filter: saturate(2);
-      }
-      70% {
-        transform: rotate(40deg) scale(1);
-        opacity: 1;
-      }
-      85% {
-        transform: rotate(40deg) scale(0);
-        opacity: 0;
-      }
-      100% {
-        transform: rotate(0deg) scale(0);
-        opacity: 0;
-      }
-    }
+@keyframes congrats {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0.9);
+  }
+}
 
+@keyframes blingbling {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  20% {
+    opacity: 1;
+    transform: scale(1) rotate(10deg);
+    filter: saturate(2);
+  }
+  70% {
+    transform: rotate(40deg) scale(1);
+    opacity: 1;
+  }
+  85% {
+    transform: rotate(40deg) scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: rotate(0deg) scale(0);
+    opacity: 0;
+  }
+}
